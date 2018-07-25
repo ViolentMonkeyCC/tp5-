@@ -11,6 +11,7 @@ class TestController extends Controller
 {
 
     public function test(Request $request) {
+        echo 'dev';
         echo md5("abc123".config('IndexController.php')). '\n';
         dump( $request->module());
         dump( $request->controller());
