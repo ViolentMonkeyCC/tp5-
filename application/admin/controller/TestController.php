@@ -12,7 +12,7 @@ class TestController extends Controller
 
     public function test(Request $request) {
         echo 'dev';
-        echo md5("abc123".config('IndexController.php')). '\n';
+        echo md5("abc123".config('password_salt'));
         dump( $request->module());
         dump( $request->controller());
         dump( $request->action());

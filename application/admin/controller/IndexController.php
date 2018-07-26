@@ -2,10 +2,9 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
 use think\Request;
 
-class IndexController extends Controller
+class IndexController extends CommonController
 {
     /**
      * 输出首页视图
