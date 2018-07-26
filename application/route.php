@@ -37,4 +37,6 @@ Route::get('/','admin/index/index');
 Route::get('/top', 'admin/index/top');//顶部视图
 Route::get('/left', 'admin/index/left');//左边视图
 Route::get('/main', 'admin/index/main');//主体视图
+Route::get('/login', 'admin/public/login');//登陆页面
 Route::post('/login', 'admin/public/login');//登陆页面
+Route::get('/logout', 'admin/public/logout');//退出页面
