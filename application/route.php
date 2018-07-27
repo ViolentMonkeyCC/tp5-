@@ -40,3 +40,19 @@ Route::get('/main', 'admin/index/main');//主体视图
 Route::get('/login', 'admin/public/login');//登陆页面
 Route::post('/login', 'admin/public/login');//登陆页面
 Route::get('/logout', 'admin/public/logout');//退出页面
+Route::group('admin', function () {
+    //分类
+    Route::get('/category/add', 'admin/category/add');//分类添加页面
+    Route::post('/category/add', 'admin/category/add');//分类添加页面
+    Route::get('/category/index', 'admin/category/index');//分类列表页面
+    Route::get('/category/upd', 'admin/category/upd');//分类编辑页面
+    Route::post('/category/upd', 'admin/category/upd');//分类编辑页面
+    Route::get('/category/ajaxDel', 'admin/category/ajaxDel');//分类删除页面
+
+    //文章
+    Route::get('/article/index', 'admin/article/index');//文章列表页
+    Route::get('/article/add', 'admin/article/add');//文章添加页
+    Route::post('/article/add', 'admin/article/add');//文章添加页
+    Route::get('/article/ajaxDel', 'admin/article/ajaxDel');//文章删除页
+
+});
