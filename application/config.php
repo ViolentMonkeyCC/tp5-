@@ -14,9 +14,29 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
 
+    'captcha'  => [
+       // 验证码字符集合
+       'codeSet'  => '123456789',
+       // 验证码字体大小(px)
+       'fontSize' => 18,
+       // 是否画混淆曲线
+       'useCurve' => false,
+       'useNoise'=> false,
+        // 验证码图片高度
+       'imageH'   => 40,
+        // 验证码图片宽度
+        'imageW'   => 160,
+        // 验证码位数
+        'length'   => 4,
+        // 验证成功后是否重置
+        'reset'    => true
+    ],
+
     //密码的加密盐
     'password_salt' => '%&^%%$&&',
 
+    //首页静态资源
+    'plugins_static'           => '/static/plugins',
     //首页静态资源
     'admin_static'           => '/static/admin',
 
