@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 城晨
- * Date: 2018/7/23
- * Time: 16:03
- */
+
+function removeXSS($val) {
+    static $obj = null;
+
+    if ($obj === null) {
+        $obj = new HTMLPurifier();
+    }
+    return $obj->purify($val);
+}
