@@ -34,7 +34,7 @@
                 </li>
                 <li>
                     <label>父分类</label>
-                    <select name="pid" class="dfinput">
+                    <select name="pid" id="select" class="dfinput">
                         <option value="">请选择分类</option>
                         <option value="0">顶级分类</option>
                         {foreach name = 'cats' item = 'cat'}
@@ -51,6 +51,8 @@
         </form>
     </div>
 </body>
-
+<script>
+    $('#select').val({$catData['pid']});
+</script>
 
 </html>

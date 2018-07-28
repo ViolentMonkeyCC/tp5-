@@ -9,5 +9,5 @@ class Article extends Model
     //主键
     protected $pk = 'article_id';
     //时间戳自动维护
-    protected $autoWriteTimeStamp = true;
+    protected $autoWriteTimestamp = true;
 }

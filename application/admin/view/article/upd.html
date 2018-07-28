@@ -54,22 +54,23 @@
             <span class="active">添加文章</span>
 
         </div>
-        <form action="{:url('admin/article/add')}" method="post" id="theform" enctype="multipart/form-data">
+        <form action="{:url('admin/article/upd')}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="article_id" value="{$artData['article_id']}">
             <ul class="forminfo">
                 <li>
                     <label>文章标题</label>
-                    <input name="title" placeholder="请输入文章标题" type="text" class="dfinput" />
+                    <input name="title" placeholder="请输入文章标题" value="{$artData['title']}" type="text" class="dfinput" />
                 </li>
                 <li>
                     <label>文章图片</label>
                     <input name="img" type="file" id="f" onchange="change()" /><i></i>
                     <p>
-                        <img id="preview"  alt="" width="300px"  name="pic" />
+                        <img id="preview"  alt="" width="300px"  name="pic" src="/upload/{$artData['ori_img']}" />
                     </p>
                 </li>
                 <li>
                     <label>所属分类</label>
-                    <select name="cat_id" class="dfinput">
+                    <select id="select" name="cat_id" class="dfinput">
                         <option value="">选择分类</option>
                         <option value="0">顶级分类</option>
                         {foreach name = 'cats' item = 'cat'}
@@ -79,7 +80,7 @@
                 </li>
                 <li>
                     <label>文章内容</label>
-                    <textarea name="content" id="content" rows="" cols=""></textarea>
+                    <textarea name="content" id="content" rows="" cols="">{$artData['content']}</textarea>
                 </li>
                 
             </ul>
@@ -93,7 +94,6 @@
 <script src="{:config('plugins_static')}/kindeditor/kindeditor-all-min.js"></script>
 <script src="{:config('plugins_static')}/kindeditor/lang/zh-CN.js"></script>
 <script src="{:config('plugins_static')}/placeImage.js"></script>
-<script src="{:config('plugins_static')}/jquery.validate.js"></script>
 <script>
     $(".formtitle span").click(function(event){
         $(this).addClass('active').siblings("span").removeClass('active') ;
@@ -116,48 +116,7 @@
 
     }
 
-    //前台验证 表单
-    $("#theform").validate({
-        //定义验证规则
-        "rules":{
-            //表单name值：规则（多个规则定义json格式）
-            //"username":"required"
-            "title":{
-                "required":true,
-                "minlength":5,
-            },
-            "pid":{
-                "required":true
-            }
-            /*"pid":{
-                //调用自定义规则，传入参数为''
-                "checkPid":''
-            }*/
-        },
-        //定义提示信息
-        "messages":{
-            //name值：提示信息（多个定义json）
-            ///"title":'用户名必填'
-            "title":{
-                "required":"用户名必填",
-                "minlength":"用户名最少为5位",
-            },
-            "pid": {
-                "required":"所属分类必填",
-            },
-        }
-    });
-
-    //实现自定义一个验证规则名为checkPid
-    $.validator.addMethod('checkPid',function(value,ele,param){
-        console.log(value); //当前验证元素的值
-        console.log(ele); //当前验证元素的dom对象
-        console.log(param);//调用自定义规则传入的参数
-        //return true 验证通过  ，return false就是失败
-        //return value ==''? false : true;
-        //return ele.value ==''? false : true;
-        return $(ele).val()==''? false : true;
-    },'必须选择一个分类');
+    $('#select').val("{$artData['cat_id']}")
 
 
 </script>

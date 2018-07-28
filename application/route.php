@@ -53,6 +53,9 @@ Route::group('admin', function () {
     Route::get('/article/index', 'admin/article/index');//文章列表页
     Route::get('/article/add', 'admin/article/add');//文章添加页
     Route::post('/article/add', 'admin/article/add');//文章添加页
+    Route::get('/article/upd', 'admin/article/upd');//文章编辑页
+    Route::post('/article/upd', 'admin/article/upd');//文章编辑页
+    Route::get('/article/getContent', 'admin/article/getContent');//文章内容获取页
     Route::get('/article/ajaxDel', 'admin/article/ajaxDel');//文章删除页
 
 });

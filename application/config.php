@@ -36,9 +36,9 @@ return [
     'password_salt' => '%&^%%$&&',
 
     //首页静态资源
-    'plugins_static'           => '/static/plugins',
+    'plugins_static' => '/static/plugins',
     //首页静态资源
-    'admin_static'           => '/static/admin',
+    'admin_static' => '/static/admin',
 
     // 应用调试模式
     'app_debug'              => true,  //开启调试模式,上线后需设置为false
@@ -67,7 +67,7 @@ return [
     // 是否开启多语言
     'lang_switch_on'         => false,
     // 默认全局过滤方法 用逗号分隔多个
-    'default_filter'         => '',
+    'default_filter'         => 'removeXSS',
     // 默认语言
     'default_lang'           => 'zh-cn',
     // 应用类库后缀
